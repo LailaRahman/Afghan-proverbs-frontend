@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Proverb</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Edit Proverb</h2>
+
+    <form action="/edit/<%= proverb.id %>" method="POST" class="border p-4 rounded bg-light shadow-sm">
+      <div class="mb-3">
+        <label for="textDari" class="form-label">Text (Dari)</label>
+        <input type="text" class="form-control" id="textDari" name="textDari" value="<%= proverb.textDari %>" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="textPashto" class="form-label">Text (Pashto)</label>
+        <input type="text" class="form-control" id="textPashto" name="textPashto" value="<%= proverb.textPashto %>" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="translationEn" class="form-label">Translation (English)</label>
+        <input type="text" class="form-control" id="translationEn" name="translationEn" value="<%= proverb.translationEn %>" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="meaning" class="form-label">Meaning</label>
+        <textarea class="form-control" id="meaning" name="meaning" rows="3" required><%= proverb.meaning %></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select" id="category" name="category" required>
+          <option value="wisdom" <%= proverb.category === 'wisdom' ? 'selected' : '' %>>Wisdom</option>
+          <option value="friendship" <%= proverb.category === 'friendship' ? 'selected' : '' %>>Friendship</option>
+          <option value="patience" <%= proverb.category === 'patience' ? 'selected' : '' %>>Patience</option>
+          <option value="humor" <%= proverb.category === 'humor' ? 'selected' : '' %>>Humor</option>
+          <!-- Add more categories as needed -->
+        </select>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <a href="/" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update Proverb</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
