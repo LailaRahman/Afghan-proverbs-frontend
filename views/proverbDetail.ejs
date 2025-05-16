@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proverb Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="mb-4">Proverb Details</h2>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Translation (English): <%= proverb.translationEn %>
+          </h5>
+          <p class="card-text">
+            <strong>Dari:</strong> <%= proverb.textDari %> <br />
+            <strong>Pashto:</strong> <%= proverb.textPashto %> <br />
+            <strong>Meaning:</strong> <%= proverb.meaning %> <br />
+            <strong>Category:</strong> <%= proverb.category %>
+          </p>
+          <a href="/edit/<%= proverb.id %>" class="btn btn-warning">Edit</a>
+          <a
+            href="/delete/<%= proverb.id %>"
+            class="btn btn-danger"
+            onclick="return confirm('Are you sure you want to delete this proverb?')"
+            >Delete</a
+          >
+          <a href="/" class="btn btn-secondary">Back to Proverbs</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
